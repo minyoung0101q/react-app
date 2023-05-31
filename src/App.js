@@ -10,10 +10,9 @@ function App() {
   const [counter, setValue] = useState(0); //setValue는 counter를 변경해주는 함수
   const onClick = () => setValue((prev) => prev + 1); //이전 counter에 1이 더해져서 return 됨
   console.log("i run all the time");
-  const iRunOnlyOnce = () => {
-    console.log("i run only once.");
-  };
-  useEffect(iRunOnlyOnce, []);
+  useEffect(() => {
+    console.log("CALL THE API....");
+  }, []);
   return (
     <div>
       <h1>{counter}</h1>
