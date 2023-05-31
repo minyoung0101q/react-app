@@ -8,7 +8,10 @@ function App() {
   useEffect(() => {
     console.log("CALL THE API....");
   }, []);
-  console.log("SEARCH FOR", keyword); //search keyword에 변화가 있을 때만! marvel영화를 검색하고 싶은데, counter가 변화할 때에도 marvel 영화를 검색하고 싶지는 않다.
+  useEffect(() => {
+    console.log("SEARCH FOR", keyword); //이렇게 하면 한 번만 실행됨 -> keyword가 변화할 때만 코드를 실행해야 하는데..counter가 변화할 때는 제외하고.
+  }, []);
+  /* search keyword에 변화가 있을 때만! marvel영화를 검색하고 싶은데, counter가 변화할 때에도 marvel 영화를 검색하고 싶지는 않다. */
   return (
     <div>
       <input
@@ -25,6 +28,4 @@ function App() {
 
 export default App;
 
-/* useEffect function은 쉽게 말해서
-우리 코드가 딱 한번만 실행될 수 있도록 보호해준다! */
-/* 저번에 했던 state와 input의 콤비네이션을 연습할 것! */
+/* keyword가 변화할 때만 marvel을 검색하도록 할 것! */
