@@ -9,9 +9,9 @@ function App() {
     console.log("CALL THE API....");
   }, []);
   useEffect(() => {
-    console.log("SEARCH FOR", keyword); //이렇게 하면 한 번만 실행됨 -> keyword가 변화할 때만 코드를 실행해야 하는데..counter가 변화할 때는 제외하고.
-  }, []);
-  /* search keyword에 변화가 있을 때만! marvel영화를 검색하고 싶은데, counter가 변화할 때에도 marvel 영화를 검색하고 싶지는 않다. */
+    console.log("SEARCH FOR", keyword);
+  }, [keyword]); //이 'keyword'가 변화할 때 코드를 실행할 거라고 react.js에게 알려주는 것
+
   return (
     <div>
       <input
@@ -28,4 +28,6 @@ function App() {
 
 export default App;
 
-/* keyword가 변화할 때만 marvel을 검색하도록 할 것! */
+/* 코드 확인 : keyword가 변화할 때만 marvel을 검색하도록 할 것!
+  이 'keyword'가 변화할 때 코드를 실행할 거라고 react.js에게 알려주는 것
+*/
