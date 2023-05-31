@@ -9,7 +9,9 @@ function App() {
     console.log("CALL THE API....");
   }, []);
   useEffect(() => {
-    console.log("SEARCH FOR", keyword);
+    if (keyword !== "" && keyword.length > 5) {
+      console.log("SEARCH FOR", keyword);
+    }
   }, [keyword]); //이 'keyword'가 변화할 때 코드를 실행할 거라고 react.js에게 알려주는 것
 
   return (
@@ -66,7 +68,21 @@ SERACH FOR m
 /* 
 하지만, 아직 검색창이 완벽하게 동작한다고 할 수는 없다!
 그건 component가 시작될 때도 검색이 되고 있기 때문이다.
-=> 이건 다음 커밋에서 확인.
+=> if문 활용한 코드 확인
+keyword가 빈 값이 아니라면, 그 때 keyword를 검색.
+
+<if문 넣어서 크롬 새로고침(실행)>
+=> (1) console창에 아래와 같이 뜬다.
+i run all the time
+CALL THE API....
+=> 항상 실행되는 코드와 movies API가 모두 한 번씩 실행되었다.
+
+(2) click me button을 누르면 다른것들 아무것도 실행되지 않고 있다.
+i run all the time => 이 문장이 콘솔 창에 클릭 횟수에 따라 뜬다.
+
+(3) 검색을 한다.
+i run all the time이 클릭 횟수에 따라 늘어나고,
+5글자를 넘는다면(if문 조건) 이제는 marvel에 대한 검색이 이루어진 것을 확인 가능하다!
 */
 
 /*
