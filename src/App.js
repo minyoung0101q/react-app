@@ -8,6 +8,7 @@ function App() {
   useEffect(() => {
     console.log("CALL THE API....");
   }, []);
+  console.log("SEARCH FOR", keyword); //search keyword에 변화가 있을 때만! marvel영화를 검색하고 싶은데, counter가 변화할 때에도 marvel 영화를 검색하고 싶지는 않다.
   return (
     <div>
       <input
