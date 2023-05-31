@@ -4,16 +4,18 @@ function App() {
   const [keyword, setKeyword] = useState("");
   const onClick = () => setValue((prev) => prev + 1);
   const onChange = (event) => setKeyword(event.target.value);
-  console.log("i run all the time");
   useEffect(() => {
-    console.log("CALL THE API....");
-  }, []);
+    console.log("I run only once.");
+  }, []); //한 번만 실행 => beacuse 두번째 인자가 빈 array -> react.js가 아무것도 지켜보지 않음
   useEffect(() => {
-    if (keyword !== "" && keyword.length > 5) {
-      console.log("SEARCH FOR", keyword);
-    }
-  }, [keyword]);
-
+    console.log("I run when 'keyword' changes.");
+  }, [keyword]); //keyword(keyword는 state)가 변화할 때 실행
+  useEffect(() => {
+    console.log("I run when 'counter' changes.");
+  }, [counter]); //counter가 변화할 때 실행
+  useEffect(() => {
+    console.log("I run when keyword & counter change");
+  }, [keyword, counter]);
   return (
     <div>
       <input
@@ -31,12 +33,7 @@ function App() {
 export default App;
 
 /*
-useEffect에 대해 배워야 할 것은 다 배움
-마지막 한 개가 남긴 했지만, 아직은 꼭 필요한 것이 아니기에 나중에 배울 것
-*/
-
-/*
-언제 코드가 실행될지 결정하는 방법을 배움
-예를 들면 component가 생성되는 첫 시작점, 
-무엇인가 update될 때도 코드 실행 가능, 그리고 특정한 keyword가 update될 때만 코드를 실행할 수 있음
+useEffect를 연습하려면, 우리는 모든걸 하나씩 나눠볼 수 있음
+useEffect를 하나 더 만듦
+기억하기 -> keyword와 counter 둘 다 우리 state 안에 있음
 */
