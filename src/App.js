@@ -22,3 +22,6 @@ function App() {
 }
 
 export default App;
+
+/* useEffect function은 쉽게 말해서
+우리 코드가 딱 한번만 실행될 수 있도록 보호해준다! */
