@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 
 function Hello() {
+  useEffect(() => {
+    console.log("I'm here");
+  }, []);
   return <h1>Hello</h1>;
 }
 
 function App() {
   const [showing, setShowing] = useState(false);
   const onClick = () => setShowing((prev) => !prev); //setShowing을 통해 이전 value를 받아온 다음에, 그 value의 반댓값을 return 할 것
-  console.log(showing);
+  // console.log(showing);
   return (
     <div>
       {showing ? <Hello /> : null}{" "}
