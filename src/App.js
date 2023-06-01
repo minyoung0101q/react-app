@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 
 function Hello() {
   useEffect(() => {
-    console.log("I'm here");
+    console.log("created :)");
+    return () => console.log("destroyed :("); //Cleanup function이라고 부르는 것!
   }, []);
   return <h1>Hello</h1>;
 }
@@ -10,7 +11,7 @@ function Hello() {
 function App() {
   const [showing, setShowing] = useState(false);
   const onClick = () => setShowing((prev) => !prev); //setShowing을 통해 이전 value를 받아온 다음에, 그 value의 반댓값을 return 할 것
-  // console.log(showing);
+  console.log("항상 실행");
   return (
     <div>
       {showing ? <Hello /> : null}{" "}
