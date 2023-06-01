@@ -1,14 +1,24 @@
+import { func } from "prop-types";
 import { useState, useEffect } from "react";
 
 function Hello() {
-  function destroyedFn() {
-    console.log("bye :(");
-  }
-  function effectFn() {
-    console.log("created :)");
-    return destroyedFn;
-  }
-  useEffect(effectFn, []); //component가 파괴될 때 function을 실행하고 싶으면, effectFn이 새로운 function을 return해야 함!
+  // function destroyedFn() {
+  //   console.log("bye :(");
+  // }
+  // function effectFn() {
+  //   console.log("created :)");
+  //   return destroyedFn;
+  // }
+  useEffect(() => {
+    console.log("hi :)");
+    return () => console.log("bye :(");
+  }, []);
+  // useEffect(function () {
+  //   console.log("hi :)");
+  //   return function () {
+  //     console.log("bye :(");
+  //   };
+  // }, []);
   return <h1>Hello</h1>;
 }
 
