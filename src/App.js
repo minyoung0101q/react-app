@@ -12,6 +12,8 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo(""); //그렇지 않다면 toDo를 추가하도록 만듦
   };
+  console.log(toDos);
+  console.log(toDos.map((item, index) => <li key={index}>{item}</li>));
   return (
     <div>
       <h1>My To Dos ({toDos.length})</h1>{" "}
