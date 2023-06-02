@@ -12,7 +12,6 @@ function App() {
     setToDos((currentArray) => [toDo, ...currentArray]);
     setToDo(""); //그렇지 않다면 toDo를 추가하도록 만듦
   };
-  console.log(toDos);
   return (
     <div>
       <h1>My To Dos ({toDos.length})</h1>{" "}
@@ -26,17 +25,25 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+        {/* toDos는 text로 된 array */}
+      </ul>
     </div>
   );
 }
 
 export default App;
 
-/* State, Effect, props를 연습하면서 우리가 지금까지 배운 모든 것들을 적용해볼 것
-먼저, 간단한 to-do list를 만드는 것으로 시작!
-*/
+/* map 함수
+map은 하나의 array에 있는 item을 내가 원하는 무엇이든지로 바꿔주는 역할을 하고
+그건 결국 새로운 array로 return 해줌.
 
-/*
-바닐라JS에서 배운 내용: form이 submit이라는 이벤트를 갖고 있음
+map은 함수의 첫번째 argument로 현재의 item을 가져올 수 있음.
+map의 함수의 첫번째 argument가 진행되고 있는 순서에 맞는 item임.
 
+map을 활용해 component를 return 한다!!
 */
